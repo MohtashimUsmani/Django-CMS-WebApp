@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CMS | Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="max-w-[280px] mx-auto">
+        <div class="flex flex-col items-center mt-[20vh]">
+            <h2 class="mb-5 text-gray-900 font-serif font-bold text-xl">REGISTER NOW</h2>
+            <form method="POST">
+                {% csrf_token %}
+                {{form.username}}
+                {{form.email}}
+                {{form.password1}}
+                {{form.password2}}
+                <button type="submit" class="bg-slate-500 hover:bg-slate-700 text-white text-base rounded-lg py-1 px-5 transition-colors w-full text-[15px]">
+                    <div align="center">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5m-13.5-9L12 3m0 0 4.5 4.5M12 3v13.5" />
+                        </svg>
+                    </div>
+                    Sign up
+                </button>
+            </form>
+            <ul>{{form.errors}}</ul>
+            <p class="text-center mt-3 text-[14px]">Already have an account?
+                <a href="{% url 'loginPage' %}" class="text-blue-600">Log in</a>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

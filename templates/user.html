@@ -1,0 +1,80 @@
+{% extends 'main.html' %}
+{% block title %}{{block.super}} | Home{% endblock %}
+{% block content %}
+<br>
+<div class="row">
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white  mb-3" id="total-orders">
+                    <div class="card-header">
+                        <h5 class="card-title">Total Orders</h5>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{total_orders}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white  mb-3" id="orders-delivered">
+                    <div class="card-header">
+                        <h5 class="card-title">Orders Delivered</h5>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{delivered}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="col-md">
+                <div class="card text-center text-white  mb-3" id="orders-pending">
+                    <div class="card-header">
+                        <h5 class="card-title">Orders Pending</h5>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{pending}}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-white p-4 rounded-md mt-4">
+        <h2 class="text-gray-500 text-lg font-semibold pb-4">Orders</h2>
+        <div class="my-1"></div>
+        <div class="bg-gradient-to-r from-cyan-300 to-cyan-500 h-px mb-6"></div>
+        <table class="w-full table-auto text-sm">
+            <thead>
+                <tr class="text-sm leading-normal">
+                    <th
+                        class="py-2 px-4 bg-grey-lightest font-bold uppercase text-sm text-grey-light border-b border-grey-light">
+                        Name</th>
+                    <th
+                        class="py-2 px-4 bg-grey-lightest font-bold uppercase text-sm text-grey-light border-b border-grey-light">
+                        Note</th>
+                    <th
+                        class="py-2 px-4 bg-grey-lightest font-bold uppercase text-sm text-grey-light border-b border-grey-light">
+                        Date Order</th>
+                    <th
+                        class="py-2 px-4 bg-grey-lightest font-bold uppercase text-sm text-grey-light border-b border-grey-light text-right">
+                        Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for orders in orders %}
+                    <tr class="hover:bg-grey-lighter">
+                        <td class="py-2 px-4 border-b border-grey-light">{{orders.product.name}}</td>
+                        <td class="py-2 px-4 border-b border-grey-light">{{orders.note}}</td>
+                        <td class="py-2 px-4 border-b border-grey-light">{{orders.date_created}}</td>
+                        <td class="py-2 px-4 border-b border-grey-light text-right">{{orders.status}}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+

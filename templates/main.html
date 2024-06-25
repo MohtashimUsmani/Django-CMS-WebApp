@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+    <link rel="stylesheet" href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+    <title>{% block title %}CMS{% endblock %}</title>
+    <link rel="stylesheet" href="{% static '/css/main.css' %}">
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        .flex-wrap {
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="flex bg-gray-800 text-white py-3 flex-wrap justify-around bg-silver">
+            <img src="{% static 'images/logo.png' %}">
+            <h1 class="py-2 px-4 text-lg font-semibold">Customer Management System</h1>
+            <ul class="py-2 px-4 flex gap-[40px] text-m">
+                {% if request.user.is_staff %}
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'products' %}">Product</a></li>
+                {% else %}
+                <li><a href="{% url 'account' %}">Settings</a></li>
+                {% endif %}
+                <li><a href="">About Me</a></li>
+            </ul>
+            <span class="py-2 px-4 text-lg font-semibold">Hello, {{request.user}} </span>
+            <span class="py-2 px-4 text-right"><a class="btn btn-sm btn-danger" href="{% url 'logoutuser' %}" >Logout</a></span>
+        </div>
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+
+    <br>
+    <footer class="relative bg-gray-800 pt-8 pb-6">
+            <div class="flex flex-wrap items-center md:justify-between justify-center">
+                <div class="w-full md:w-4/12 px-4 mx-auto text-center">
+                    <div class="text-sm text-slate-200 font-semibold py-1">
+                       @copyright CodeBunker
+                    </div>
+                </div>
+            </div>
+    </footer>
+
+</body>
+</html>
