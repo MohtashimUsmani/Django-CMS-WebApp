@@ -13,10 +13,13 @@ The **Customer Management System** allows users to authenticate into two distinc
 - Update and delete orders.
 - View detailed customer profiles.
 - Add and manage products.
+🔑 Login Credentials for Demo:
+- Username: `admin`, Password: `admin_0912`
 
 ### Customer Features:
 - View personal orders and their statuses.
 - Update personal profile settings.
+- Register to explore as a customer
 
 ## Usage
 
@@ -29,6 +32,7 @@ The **Customer Management System** allows users to authenticate into two distinc
 - HTML
 - CSS
 - JavaScript
+- Postgresql
 
 ## Contributing
 
